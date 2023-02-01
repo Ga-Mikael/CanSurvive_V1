@@ -4,23 +4,16 @@
 {% endblock %}
 
 {% block body %}
-	<div class="example-wrapper text-center">
-		<h1>Hello
-			{{ controller_name }}! ✅</h1>
-
-		This friendly message is coming from:
-		<ul>
-			<li>Your controller at
-				<code>
-					<a href="{{ '/home/vgillet/Symfony-initialized/base_project_bootstrap/src/Controller/HomeController.php'|file_link(0) }}">src/Controller/HomeController.php</a>
-				</code>
-			</li>
-			<li>Your template at
-				<code>
-					<a href="{{ '/home/vgillet/Symfony-initialized/base_project_bootstrap/templates/home/index.html.twig'|file_link(0) }}">templates/home/index.html.twig</a>
-				</code>
-			</li>
-		</ul>
-		<a href="{{ path("app_logout") }}">Disconnect</a>
+	<div class="text-center pt-5">
+		<h1>Nom du bunker</h1>
+	</div>
+	<div class="container-fluid">
+	<div>
+	Jours restant</div>
+	<div></div>
+	<div class="m-auto d-flex flex-column w-25 py-4">
+		<a class="btn mt-3 bg-primary border border-secondary text-secondary p-2 rounded-0" href="{# {{ path("app_can_index") }} #}">Stock</a>
+		<a class="btn mt-3 bg-primary border border-secondary text-secondary p-2 rounded-0" href="{# {{ path("app_resident_index") }} #}">Gestion Resident</a>
+	</div>
 	</div>
 {% endblock %}

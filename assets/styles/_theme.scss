@@ -1,0 +1,17 @@
+
+$primary: #1E1E1E;
+$secondary : #FF9D4E;
+
+* {
+    font-family: 'Andale Mono'; 
+}
+
+::placeholder {
+
+    color: $secondary;
+    opacity: 0.8;
+} 
+
+.table {
+    color: $secondary!important;
+}

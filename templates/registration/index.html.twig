@@ -2,10 +2,52 @@
 
 {% block body %}
 	<main>
-		<h1>Register</h1>
+		<div class="text-center pt-5"><h1>CanSurvive</h1>
+		<h2>Enregistrement</h2></div>
 		{{ form_start(registrationForm) }}
-		<button type="submit">Register</button>
+						<div class="form-group py-4 w-25 m-auto d-flex flex-column">
+					{{ form_label(registrationForm.firstname, 'Prénom', {'label_attr':{'class':'mt-4 d-none'}}) }}
+
+					{{ form_widget(registrationForm.firstname, {'attr':{'class':'rounded-0 bg-primary border border-secondary text-secondary'}}
+					) }}
+					{{ form_errors(registrationForm.firstname, {'attr':{'class':'form-control'}}
+					) }}
+
+
+					{{ form_label(registrationForm.lastname, 'Nom', {'label_attr':{'class':'mt-4 d-none'}})}}
+
+					{{ form_widget(registrationForm.lastname, {'attr':{'class':'bg-primary border border-secondary text-secondary mt-3 rounded-0'}}
+					) }}
+					{{ form_errors(registrationForm.lastname, {'attr':{'class':'form-control'}}
+					) }}
+
+					{{ form_label(registrationForm.email, 'Email', {'label_attr':{'class':'mt-4 d-none'}}) }}
+
+					{{ form_widget(registrationForm.email, {'attr':{'class':'bg-primary border border-secondary text-secondary mt-3 rounded-0'}}
+					) }}
+					{{ form_errors(registrationForm.email, {'attr':{'class':'form-control'}}
+					) }}
+
+					{{ form_label(registrationForm.daily_comsumption, 'Consommation journalière', {'label_attr':{'class':'mt-4 d-none'}}) }}
+
+					{{ form_widget(registrationForm.daily_comsumption, {'attr':{'class':'bg-primary border border-secondary text-secondary mt-3 rounded-0'}}
+					) }}
+					{{ form_errors(registrationForm.daily_comsumption, {'attr':{'class':'form-control'}}
+					) }}
+
+
+					{{ form_label(registrationForm.plainPassword, 'Mot de passe', {'label_attr':{'class':'mt-4 d-none'}}) }}
+
+					{{ form_widget(registrationForm.plainPassword, {'attr':{'class':'bg-primary border border-secondary  mt-3 rounded-0'}}
+					) }}
+					{{ form_errors(registrationForm.plainPassword, {'attr':{'class':'form-control'}}
+					) }}
+		<button class="mt-4 btn btn-primary border border-secondary text-secondary rounded-0" type="submit">S'enregistrer</button>
+				</div>
 		{{ form_end(registrationForm) }}
-		<a href="{{ path('app_login') }}" class="">Back</a>
-	</div>
-</main>{% endblock %}
+		<div class="text-center">
+		<a href="{{ path('app_login') }}" class="btn btn-primary text-secondary opacity-75">Retour</a>
+		</div>
+	</main>
+	{% block navbar %}{% endblock %}
+{% endblock %}
