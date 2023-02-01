@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Can index{% endblock %}
+
+{% block body %}
+    <h1>Can index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Capacity</th>
+                <th>ExpirationDate</th>
+                <th>BarCode</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for can in cans %}
+            <tr>
+                <td>{{ can.id }}</td>
+                <td>{{ can.name }}</td>
+                <td>{{ can.capacity }}</td>
+                <td>{{ can.expirationDate ? can.expirationDate|date('Y-m-d') : '' }}</td>
+                <td>{{ can.barCode }}</td>
+                <td>
+                    <a href="{{ path('app_can_show', {'id': can.id}) }}">show</a>
+                    <a href="{{ path('app_can_edit', {'id': can.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="6">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_can_new') }}">Create new</a>
+{% endblock %}

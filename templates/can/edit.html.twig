@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit Can{% endblock %}
+
+{% block body %}
+    <h1>Edit Can</h1>
+
+    {{ include('can/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('app_can_index') }}">back to list</a>
+
+    {{ include('can/_delete_form.html.twig') }}
+{% endblock %}
