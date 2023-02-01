@@ -13,13 +13,13 @@ use Symfony\Component\Routing\Annotation\Route;
 #[Route('/bunker')]
 class BunkerController extends AbstractController
 {
-    #[Route('/', name: 'app_bunker_index', methods: ['GET'])]
+     #[Route('/', name: 'app_bunker_index', methods: ['GET'])]
     public function index(BunkerRepository $bunkerRepository): Response
     {
         return $this->render('bunker/index.html.twig', [
             'bunkers' => $bunkerRepository->findAll(),
         ]);
-    }
+    } 
 
     #[Route('/new', name: 'app_bunker_new', methods: ['GET', 'POST'])]
     public function new(Request $request, BunkerRepository $bunkerRepository): Response
@@ -40,10 +40,10 @@ class BunkerController extends AbstractController
         ]);
     }
 
-    #[Route('/{id}', name: 'app_bunker_show', methods: ['GET'])]
+    #[Route('/{id}/home', name: 'app_bunker_show', methods: ['GET'])]
     public function show(Bunker $bunker): Response
     {
-        return $this->render('bunker/show.html.twig', [
+        return $this->render('home/index.html.twig.html.twig', [
             'bunker' => $bunker,
         ]);
     }
