@@ -34,7 +34,7 @@ class ResidentController extends AbstractController
             return $this->redirectToRoute('app_resident_index', [], Response::HTTP_SEE_OTHER);
         }
 
-        return $this->renderForm('resident/new.html.twig', [
+        return $this->render('resident/new.html.twig', [
             'resident' => $resident,
             'form' => $form,
         ]);
@@ -60,7 +60,7 @@ class ResidentController extends AbstractController
             return $this->redirectToRoute('app_resident_index', [], Response::HTTP_SEE_OTHER);
         }
 
-        return $this->renderForm('resident/edit.html.twig', [
+        return $this->render('resident/edit.html.twig', [
             'resident' => $resident,
             'form' => $form,
         ]);

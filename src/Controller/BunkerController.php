@@ -34,7 +34,7 @@ class BunkerController extends AbstractController
             return $this->redirectToRoute('app_bunker_index', [], Response::HTTP_SEE_OTHER);
         }
 
-        return $this->renderForm('bunker/new.html.twig', [
+        return $this->render('bunker/new.html.twig', [
             'bunker' => $bunker,
             'form' => $form,
         ]);
@@ -60,7 +60,7 @@ class BunkerController extends AbstractController
             return $this->redirectToRoute('app_bunker_index', [], Response::HTTP_SEE_OTHER);
         }
 
-        return $this->renderForm('bunker/edit.html.twig', [
+        return $this->render('bunker/edit.html.twig', [
             'bunker' => $bunker,
             'form' => $form,
         ]);
