@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Bunker{% endblock %}
+
+{% block body %}
+<div class="text-center">
+    <h1>Bunker</h1>
+</div>
+    {{ include('bunker/_form.html.twig') }}
+
+    <a href="{{ path('app_bunker_index') }}">back to list</a>
+{% endblock %}

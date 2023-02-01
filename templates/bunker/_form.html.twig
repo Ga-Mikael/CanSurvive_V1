@@ -1,0 +1,31 @@
+
+{{ form_start(form) }}
+<div class="form-group py-4 w-25 m-auto d-flex flex-column">
+	{{ form_label(form.name, 'Nom du Bunker', {'label_attr':{'class':'mt-4 d-none'}}) }}
+
+	{{ form_widget(form.name, {'attr':{'class':'rounded-0 bg-primary border border-secondary text-secondary'}}
+	) }}
+	{{ form_errors(form.name, {'attr':{'class':'form-control'}}
+	) }}
+
+
+	{{ form_label(form.stockCapacity, 'Capacitié du stock', {'label_attr':{'class':'mt-4 d-none'}})}}
+
+	{{ form_widget(form.stockCapacity, {'attr':{'class':'bg-primary border border-secondary text-secondary mt-3 rounded-0'}}
+	) }}
+	{{ form_errors(form.stockCapacity, {'attr':{'class':'form-control'}}
+	) }}
+
+	{{ form_label(form.residentCapacity, 'Capacité humaine', {'label_attr':{'class':'mt-4 d-none'}}) }}
+
+	{{ form_widget(form.residentCapacity, {'attr':{'class':'bg-primary border border-secondary text-secondary mt-3 rounded-0'}}
+	) }}
+	{{ form_errors(form.residentCapacity, {'attr':{'class':'form-control'}}
+	) }}
+
+	<button class="mt-4 btn btn-primary border border-secondary text-secondary rounded-0" type="submit">S'enregistrer</button>
+</div>
+{{ form_end(form) }}
+<div class="text-center">
+	<a href="{{ path('app_login') }}" class="btn btn-primary text-secondary opacity-75">Retour</a>
+</div>
