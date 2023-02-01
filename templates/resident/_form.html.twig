@@ -1,0 +1,31 @@
+
+{{ form_start(form) }}
+<div class="form-group pt-5 w-25 m-auto d-flex flex-column">
+	{{ form_label(form.firstname, 'Prénom', {'label_attr':{'class':'mt-4 d-none'}}) }}
+
+	{{ form_widget(form.firstname, {'attr':{'class':'rounded-0 bg-primary border border-secondary text-secondary'}}
+	) }}
+	{{ form_errors(form.firstname, {'attr':{'class':'form-control'}}
+	) }}
+
+
+	{{ form_label(form.lastname, 'Nom', {'label_attr':{'class':'mt-4 d-none'}})}}
+
+	{{ form_widget(form.lastname, {'attr':{'class':'bg-primary border border-secondary text-secondary mt-3 rounded-0'}}
+	) }}
+	{{ form_errors(form.lastname, {'attr':{'class':'form-control'}}
+	) }}
+
+	{{ form_label(form.dailyComsumption, 'Consommation journalière', {'label_attr':{'class':'mt-4 d-none'}}) }}
+
+	{{ form_widget(form.dailyComsumption, {'attr':{'class':'bg-primary border border-secondary text-secondary mt-3 rounded-0'}}
+	) }}
+	{{ form_errors(form.dailyComsumption, {'attr':{'class':'form-control'}}
+	) }}
+
+	<button class="mt-4 btn btn-primary border border-secondary text-secondary rounded-0" type="submit">Ajouter</button>
+</div>
+{{ form_end(form) }}
+<div class="text-center">
+	<a href="{{ path('app_resident_index') }}" class="btn btn-primary text-secondary opacity-75 mt-2">Retour</a>
+</div>

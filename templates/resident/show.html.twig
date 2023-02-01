@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Resident
+{% endblock %}
+
+{% block body %}
+
+	<div class="text-center">
+		<h1>{{ resident.firstname }}
+			{{ resident.lastname }}</h1>
+
+	</div>
+	<div class="text-center">
+		<div>Consommation Journalière:
+			{{ resident.dailyComsumption }}</div>
+	</div>
+
+	<div class="text-center">
+		<a class="mt-3 btn btn-primary border border-secondary text-secondary rounded-0" href="{{ path('app_resident_edit', {'id': resident.id}) }}">Modifier</a>
+	</div>
+	<div class="text-center">
+		{{ include('resident/_delete_form.html.twig') }}
+	</div>
+{% endblock %}
