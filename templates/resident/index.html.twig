@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Resident index{% endblock %}
+
+{% block body %}
+    <h1>Resident index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Firstname</th>
+                <th>Lastname</th>
+                <th>DailyComsumption</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for resident in residents %}
+            <tr>
+                <td>{{ resident.id }}</td>
+                <td>{{ resident.firstname }}</td>
+                <td>{{ resident.lastname }}</td>
+                <td>{{ resident.dailyComsumption }}</td>
+                <td>
+                    <a href="{{ path('app_resident_show', {'id': resident.id}) }}">show</a>
+                    <a href="{{ path('app_resident_edit', {'id': resident.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_resident_new') }}">Create new</a>
+{% endblock %}
