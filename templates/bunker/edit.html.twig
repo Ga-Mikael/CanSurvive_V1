@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit Bunker{% endblock %}
+
+{% block body %}
+    <h1>Edit Bunker</h1>
+
+    {{ include('bunker/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('app_bunker_index') }}">back to list</a>
+
+    {{ include('bunker/_delete_form.html.twig') }}
+{% endblock %}

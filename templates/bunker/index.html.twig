@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Bunker index{% endblock %}
+
+{% block body %}
+    <h1>Bunker index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>StockCapacity</th>
+                <th>ResidentCapacity</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for bunker in bunkers %}
+            <tr>
+                <td>{{ bunker.id }}</td>
+                <td>{{ bunker.name }}</td>
+                <td>{{ bunker.stockCapacity }}</td>
+                <td>{{ bunker.residentCapacity }}</td>
+                <td>
+                    <a href="{{ path('app_bunker_show', {'id': bunker.id}) }}">show</a>
+                    <a href="{{ path('app_bunker_edit', {'id': bunker.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_bunker_new') }}">Create new</a>
+{% endblock %}
