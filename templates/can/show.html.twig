@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{can.name}}
+{% endblock %}
+
+{% block body %}
+
+	<div class="text-center">
+		<h1>{{ can.name }}</h1>
+
+	</div>
+	<div class="text-center">
+		<div>Capacité :
+			{{ can.capacity }}</div>
+		<div>Date d'expiration:
+			{{ can.expirationDate ? can.expirationDate|date('Y-m-d') : '' }}</div>
+		<div>Code barre:
+			{{ can.barCode }}</div>
+	</div>
+
+	<div class="text-center">
+		<a class="mt-3 btn btn-primary border border-secondary text-secondary rounded-0" href="{{ path('app_can_edit', {'id': can.id}) }}">Modifier</a>
+	</div>
+	<div class="text-center">
+		{{ include('can/_delete_form.html.twig') }}
+        
+	</div>
+{% endblock %}

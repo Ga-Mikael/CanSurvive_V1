@@ -1,0 +1,38 @@
+
+{{ form_start(form) }}
+<div class="form-group pt-5 w-25 m-auto d-flex flex-column">
+	{{ form_label(form.name, 'Nom', {'label_attr':{'class':'mt-4 d-none'}}) }}
+
+	{{ form_widget(form.name, {'attr':{'class':'rounded-0 bg-primary border border-secondary text-secondary'}}
+	) }}
+	{{ form_errors(form.name, {'attr':{'class':'form-control'}}
+	) }}
+
+
+	{{ form_label(form.capacity, 'Capacité', {'label_attr':{'class':'mt-4 d-none'}})}}
+
+	{{ form_widget(form.capacity, {'attr':{'class':'bg-primary border border-secondary text-secondary mt-3 rounded-0'}}
+	) }}
+	{{ form_errors(form.capacity, {'attr':{'class':'form-control'}}
+	) }}
+
+	{{ form_label(form.barCode, 'Code barre', {'label_attr':{'class':'mt-4 d-none'}}) }}
+
+	{{ form_widget(form.barCode, {'attr':{'class':'bg-primary border border-secondary text-secondary mt-3 rounded-0'}}
+	) }}
+	{{ form_errors(form.barCode, {'attr':{'class':'form-control'}}
+	) }}
+    
+	{{ form_label(form.expirationDate, 'Date de péremption', {'label_attr':{'class':'mt-4 d-none'}}) }}
+
+	{{ form_widget(form.expirationDate, {'attr':{'class':'bg-primary border border-secondary text-secondary mt-3 rounded-0'}}
+	) }}
+	{{ form_errors(form.expirationDate, {'attr':{'class':'form-control'}}
+	) }}
+
+	<button class="mt-4 btn btn-primary border border-secondary text-secondary rounded-0" type="submit">Ajouter</button>
+</div>
+{{ form_end(form) }}
+<div class="text-center">
+	<a href="{{ path('app_can_index') }}" class="btn btn-primary text-secondary opacity-75 mt-2">Retour</a>
+</div>
