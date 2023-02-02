@@ -22,11 +22,4 @@ class BunkerManager
         return $totalCans;
     }
 
-    public function getBunkerCapacity(): int
-    {
-        $bunkers = $this->bunkerRepository->findBy();
-        $stockMax = $this->bunkerRepository->getCapacity();
-
-        return $stockMax;
-    }
 }
