@@ -5,11 +5,13 @@ namespace App\Controller;
 use App\Entity\Can;
 use App\Form\CanType;
 use App\Repository\CanRepository;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Security\Http\Attribute\IsGranted;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
+#[IsGranted('ROLE_USER')]
 #[Route('/can')]
 class CanController extends AbstractController
 {
@@ -34,7 +36,7 @@ class CanController extends AbstractController
             return $this->redirectToRoute('app_can_index', [], Response::HTTP_SEE_OTHER);
         }
 
-        return $this->renderForm('can/new.html.twig', [
+        return $this->render('can/new.html.twig', [
             'can' => $can,
             'form' => $form,
         ]);
@@ -60,7 +62,7 @@ class CanController extends AbstractController
             return $this->redirectToRoute('app_can_index', [], Response::HTTP_SEE_OTHER);
         }
 
-        return $this->renderForm('can/edit.html.twig', [
+        return $this->render('can/edit.html.twig', [
             'can' => $can,
             'form' => $form,
         ]);
