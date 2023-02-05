@@ -4,18 +4,28 @@
 {% endblock %}
 
 {% block body %}
-	<div class="text-center pt-5">
-		<h1>{{bunker.name}}</h1>
-	</div>
 
-	<div class="text-center">
-		<p>Jour Restant</p>
-	</div>
-	<div class="container-fluid text-center">
-
-		<div class="m-auto d-flex flex-column w-25 py-4">
-			<a class="btn mt-3 bg-primary border border-secondary text-secondary p-2 rounded-0" href="{{ path("app_can_index") }}">Stock</a>
-			<a class="btn mt-3 bg-primary border border-secondary text-secondary p-2 rounded-0" href="{{ path("app_resident_index") }}">Gestion Resident</a>
+	{% if app.user.bunker %}
+		<div class="text-center pt-5">
+			<h1>{{bunker.name}}</h1>
 		</div>
-	</div>
+
+		<div class="text-center">
+			<p>Jours avant la fin
+				{{dayBeforeEnd|round}}</p>
+			<p>Stock actuel
+				{{canStock}}/{{bunker.stockCapacity}}</p>
+			<p>Consommation journalière du bunker
+				{{totalComsumption}}</p>
+		</div>
+		<div class="container-fluid text-center">
+
+			<div class="m-auto d-flex flex-column w-25 py-4">
+				<a class="btn mt-3 bg-primary border border-secondary text-secondary p-2 rounded-0" href="{{ path("app_can_index") }}">Stock</a>
+				<a class="btn mt-3 bg-primary border border-secondary text-secondary p-2 rounded-0" href="{{ path("app_resident_index") }}">Gestion Resident</a>
+			</div>
+		</div>
+	{% else %}
+		<a class="btn mt-3 bg-primary border border-secondary text-secondary p-2 rounded-0" href="{{ path("app_bunker_new") }}">Créer Bunker</a>
+	{% endif %}
 {% endblock %}
