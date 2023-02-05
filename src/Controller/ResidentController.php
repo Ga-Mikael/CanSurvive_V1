@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\Resident;
 use App\Form\ResidentType;
 use App\Repository\ResidentRepository;
+use App\Service\BunkerManager;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -16,8 +17,10 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 class ResidentController extends AbstractController
 {
     #[Route('/', name: 'app_resident_index', methods: ['GET'])]
-    public function index(ResidentRepository $residentRepository): Response
+    public function index(ResidentRepository $residentRepository, BunkerManager $bunkerManager): Response
     {
+            
+
         return $this->render('resident/index.html.twig', [
             'residents' => $residentRepository->findAll(),
         ]);

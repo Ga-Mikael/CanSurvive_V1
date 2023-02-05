@@ -15,6 +15,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 #[Route('/bunker')]
 class BunkerController extends AbstractController
 {
+     #[IsGranted('ROLE_ADMIN')]
      #[Route('/', name: 'app_bunker_index', methods: ['GET'])]
     public function index(BunkerRepository $bunkerRepository): Response
     {

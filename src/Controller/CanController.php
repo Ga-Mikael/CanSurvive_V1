@@ -23,7 +23,7 @@ class CanController extends AbstractController
     }
 
     #[Route('/', name: 'app_can_index', methods: ['GET'])]
-    public function index(BunkerManager $bunkerManager, BunkerRepository $bunkerRepository, CanRepository $canRepository): Response
+    public function index(BunkerManager $bunkerManager, CanRepository $canRepository): Response
     {
         /**  @var \App\Entity\User */
         $user = $this->getUser();
