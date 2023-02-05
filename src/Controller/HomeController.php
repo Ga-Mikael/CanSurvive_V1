@@ -15,9 +15,13 @@ class HomeController extends AbstractController
     #[Route('/', name: 'app_home')]
     public function index(): Response
     {
+        /**  @var \App\Entity\User */
+        $user = $this->getUser();
+        $bunker = $user->getBunker();
 
         return $this->render('home/index.html.twig', [
-            'controller_name' => 'HomeController',
+            'bunker' => $bunker,
+
         ]);
     }
 }
