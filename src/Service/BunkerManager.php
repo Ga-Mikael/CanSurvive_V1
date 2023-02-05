@@ -7,6 +7,7 @@ use App\Entity\User;
 use App\Repository\CanRepository;
 use App\Repository\ResidentRepository;
 use App\Repository\UserRepository;
+use DateTime;
 
 class BunkerManager
 {
@@ -38,4 +39,13 @@ class BunkerManager
         return $totalResidentComsumption;
     }
 
+/*     public function getDayBeforePeremption()
+    {
+        $now = new DateTime('now');
+        $peremptionDate = $
+
+        $DayBeforePeremption = date_diff($now, $peremptionDate);
+
+        return $DayBeforePeremption->format('‰a jours restant');
+    } */
 }
