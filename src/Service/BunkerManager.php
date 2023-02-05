@@ -2,19 +2,19 @@
 
 namespace App\Service;
 
-use App\Repository\BunkerRepository;
+use App\Entity\Bunker;
 use App\Repository\CanRepository;
 
 class BunkerManager
 {
-    public function __construct(private CanRepository $canRepository, private BunkerRepository $bunkerRepository)
+    public function __construct(private CanRepository $canRepository)
     {
     }
 
-    public function getAllCan(): int
+    public function getAllCan(Bunker $bunker): int
     {
+        $cans = $this->canRepository->findBy(['bunker' => $bunker]);
         $totalCans = 0;
-        $cans = $this->canRepository->findAll();
         foreach ($cans as $can) {
             $totalCans += 1;
         }

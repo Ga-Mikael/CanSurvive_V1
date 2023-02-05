@@ -1,17 +1,14 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello HomeController!
+{% block title %}Accueil
 {% endblock %}
 
 {% block body %}
 	<div class="text-center pt-5">
-		<h1>Nom du bunker</h1>
+		<h1>canSurvive</h1>
 	</div>
 	<div class="container-fluid text-center">
-		<div>
-			Jours restant</div>
-		<div>Conserves </div>
-		<div>Résidents</div>
+
 		<div class="m-auto d-flex flex-column w-25 py-4">
 			<a class="btn mt-3 bg-primary border border-secondary text-secondary p-2 rounded-0" href="{{ path("app_can_index") }}">Stock</a>
 			<a class="btn mt-3 bg-primary border border-secondary text-secondary p-2 rounded-0" href="{{ path("app_resident_index") }}">Gestion Resident</a>
