@@ -8,6 +8,10 @@
 		<h1>Stock</h1>
 	</div>
 
+	<div class="text-center">
+		Stock actuel
+		{{canStock}}/{{bunker.stockCapacity}}</div>
+
 	<div class="container-fluid pt-5">
 		<div data-bs-spy="scroll" data-bs-target="#navbar-example2" data-bs-root-margin="0px 0px -40%" data-bs-smooth-scroll="true" class="scrollspy-example bg-body-tertiary border border-secondary p-2 rounded-0 w-25 mx-auto">
 			{% for can in cans %}

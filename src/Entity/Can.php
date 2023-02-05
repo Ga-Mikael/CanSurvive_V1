@@ -17,9 +17,6 @@ class Can
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $name = null;
 
-    #[ORM\Column(nullable: true)]
-    private ?int $capacity = null;
-
     #[ORM\Column(type: Types::DATE_MUTABLE, nullable: true)]
     private ?\DateTimeInterface $expirationDate = null;
 
@@ -46,17 +43,6 @@ class Can
         return $this;
     }
 
-    public function getCapacity(): ?int
-    {
-        return $this->capacity;
-    }
-
-    public function setCapacity(?int $capacity): self
-    {
-        $this->capacity = $capacity;
-
-        return $this;
-    }
 
     public function getExpirationDate(): ?\DateTimeInterface
     {

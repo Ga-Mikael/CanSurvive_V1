@@ -3,6 +3,7 @@
 namespace App\Service;
 
 use App\Entity\Bunker;
+use App\Entity\User;
 use App\Repository\CanRepository;
 
 class BunkerManager
@@ -13,7 +14,7 @@ class BunkerManager
 
     public function getAllCan(Bunker $bunker): int
     {
-        $cans = $this->canRepository->findBy(['bunker' => $bunker]);
+        $cans = $this->canRepository->findBy(['bunkerStock' => $bunker]);
         $totalCans = 0;
         foreach ($cans as $can) {
             $totalCans += 1;
