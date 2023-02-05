@@ -4,14 +4,16 @@ namespace App\Controller;
 
 use App\Entity\Can;
 use App\Form\CanType;
-use App\Repository\BunkerRepository;
 use App\Service\BunkerManager;
 use App\Repository\CanRepository;
+use App\Repository\BunkerRepository;
+use DateTime;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Security\Http\Attribute\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+
 
 #[IsGranted('ROLE_USER')]
 #[Route('/can')]
@@ -29,10 +31,20 @@ class CanController extends AbstractController
         $user = $this->getUser();
         $bunker = $user->getBunker();
 
+        $cans = $canRepository->findBy(['bunkerStock' => $bunker], ['expirationDate' => 'ASC']);
+
+         /** @var DateTime */
+       /*  $now = new DateTime('now');
+        $peremptionDate = $canRepository->findBy(['ExpirationDate' => $expirationDate]);
+        $DayBeforePeremption = date_diff($now, $peremptionDate);
+
+        return $DayBeforePeremption->format('‰a jours restant'); */ 
+
         return $this->render('can/index.html.twig', [
             'bunker' => $bunker,
             'canStock' => $bunkerManager->getAllCan($bunker),
-            'cans' => $canRepository->findBy(['bunkerStock' => $bunker], ['expirationDate' => 'ASC']),
+            'cans' => $cans,
+            /* 'dayBeforePeremption' => $bunkerManager->getDayBeforePeremption(), */
         ]);
     }
 

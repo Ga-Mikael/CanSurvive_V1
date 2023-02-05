@@ -16,7 +16,6 @@ class CanType extends AbstractType
     {
         $builder
             ->add('name', TextType::class, ['attr' => ['placeholder' => 'Nom']])
-            ->add('capacity', IntegerType::class, ['attr' => ['placeholder' => 'Taille (1 ou 2)']])
             ->add('expirationDate', DateType::class, ['attr' => ['placeholder' => 'date de péremption'], 'widget' => 'single_text'])
             ->add('barCode', IntegerType::class, ['attr' => ['placeholder' => 'Code Barre']])
         ;
