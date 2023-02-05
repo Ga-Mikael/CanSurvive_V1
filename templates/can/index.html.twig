@@ -11,40 +11,43 @@
 	<div class="text-center">
 		<p>Stock actuel
 			{{canStock}}/{{bunker.stockCapacity}}</p>
-			
-		<p class="bg-secondary text-primary">
-			Conserve(s) périmée(s)
-		</p>
-		 
-		
+
 	</div>
 
 	<div class="container-fluid pt-5">
-		<div data-bs-spy="scroll" data-bs-target="#navbar-example2" data-bs-root-margin="0px 0px -40%" data-bs-smooth-scroll="true" class="scrollspy-example bg-body-tertiary border border-secondary p-2 rounded-0 w-25 mx-auto">
+		<div data-bs-spy="scroll" data-bs-root-margin="0px px -40%" data-bs-smooth-scroll="true" class="scrollspy-example bg-body-tertiary border border-secondary rounded-0 mx-auto widthList" tabindex="0">
+		<div class="row">
+			<div class="col-6 ps-4 my-auto fs-4">Nom</div>
+			<div class="text-end col-3 offset-3 ">
+				<svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" fill="currentColor" class="bi bi-upc" viewbox="0 0 16 16">
+					<path d="M3 4.5a.5.5 0 0 1 1 0v7a.5.5 0 0 1-1 0v-7zm2 0a.5.5 0 0 1 1 0v7a.5.5 0 0 1-1 0v-7zm2 0a.5.5 0 0 1 1 0v7a.5.5 0 0 1-1 0v-7zm2 0a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-7zm3 0a.5.5 0 0 1 1 0v7a.5.5 0 0 1-1 0v-7z"/>
+				</svg>
+				</div>
+			</div>
 			{% for can in cans %}
 				<a class="mt-1 btn btn-primary text-secondary d-flex py-0" href="{{ path('app_can_show', {'id': can.id}) }}">
 					<div class="container-fluid ">
 						{% if "now"|date("Y-m-d") >= can.ExpirationDate|date("Y-m-d")  %}
-						{% set Expired = true %}
-							<div class="d-flex justify-content-between bg-secondary text-primary">
-								<p>
+							{% set Expired = true %}
+							<div class="row justify-content-between bg-secondary text-primary">
+								<p class="col-3 text-start">
 									{{ can.name }}
 								</p>
-								<p>
+								<p class="col-3 d-none d-sm-block">
 									{{can.ExpirationDate|date("Y-m-d")}}
 								</p>
-								<p>
+								<p class="col-3 text-end">
 									{{ can.barCode }}
 								</p>
 							{% elseif "now"|date("Y-m-d") < can.ExpirationDate|date("Y-m-d") %}
-								<div class="d-flex justify-content-between">
-									<p>
+								<div class="row justify-content-between">
+									<p class="col-3 text-start">
 										{{ can.name }}
 									</p>
-									<p>
+									<p class="col-3 d-none d-sm-block">
 										{{can.ExpirationDate|date("Y-m-d")}}
 									</p>
-									<p>
+									<p class="col-3 text-end">
 										{{ can.barCode }}
 									</p>
 								{% endif %}
@@ -62,4 +65,6 @@
 	<div class="text-center">
 		<a class="mt-3 btn btn-primary border border-secondary text-secondary rounded-0" href="{{ path('app_can_new') }}">Ajouter</a>
 	</div>
+
+
 {% endblock %}

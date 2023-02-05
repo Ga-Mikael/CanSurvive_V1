@@ -5,7 +5,7 @@
 		<div class="text-center pt-5"><h1>CanSurvive</h1>
 		<h2>Enregistrement</h2></div>
 		{{ form_start(registrationForm) }}
-						<div class="form-group py-4 w-25 m-auto d-flex flex-column">
+						<div class="form-group py-4 m-auto d-flex flex-column widthForm">
 					{{ form_label(registrationForm.firstname, 'Prénom', {'label_attr':{'class':'mt-4 d-none'}}) }}
 
 					{{ form_widget(registrationForm.firstname, {'attr':{'class':'rounded-0 bg-primary border border-secondary text-secondary'}}
@@ -42,7 +42,7 @@
 					) }}
 					{{ form_errors(registrationForm.plainPassword, {'attr':{'class':'form-control'}}
 					) }}
-		<button class="mt-4 btn btn-primary border border-secondary text-secondary rounded-0" type="submit">S'enregistrer</button>
+		<button class="mt-4 btn btn-primary border border-secondary text-secondary rounded-0 mx-auto" type="submit">S'enregistrer</button>
 				</div>
 		{{ form_end(registrationForm) }}
 		<div class="text-center">

@@ -15,3 +15,15 @@ $secondary : #FF9D4E;
 .table {
     color: $secondary!important;
 }
+
+.widthList {
+    width: 80%!important;
+    height: 60vh!important;
+    
+    overflow-y: scroll;
+}
+
+.widthForm {
+    width: 40%!important;
+    max-width: 35%;
+}

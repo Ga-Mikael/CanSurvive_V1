@@ -6,7 +6,7 @@
 {% block body %}
 
 	{% if app.user.bunker %}
-		<div class="text-center pt-5">
+		<div class="text-center">
 			<h1>{{bunker.name}}</h1>
 		</div>
 
@@ -28,4 +28,8 @@
 	{% else %}
 		<a class="btn mt-3 bg-primary border border-secondary text-secondary p-2 rounded-0" href="{{ path("app_bunker_new") }}">Créer Bunker</a>
 	{% endif %}
+	{% if app.user.bunker %}
+   {% block navbar %}{% endblock %}
+   {% endif %}
+
 {% endblock %}
