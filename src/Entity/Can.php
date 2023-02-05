@@ -26,6 +26,9 @@ class Can
     #[ORM\Column(nullable: true)]
     private ?int $barCode = null;
 
+    #[ORM\ManyToOne(inversedBy: 'cans')]
+    private ?Bunker $bunkerStock = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -75,6 +78,18 @@ class Can
     public function setBarCode(?int $barCode): self
     {
         $this->barCode = $barCode;
+
+        return $this;
+    }
+
+    public function getBunkerStock(): ?Bunker
+    {
+        return $this->bunkerStock;
+    }
+
+    public function setBunkerStock(?Bunker $bunkerStock): self
+    {
+        $this->bunkerStock = $bunkerStock;
 
         return $this;
     }

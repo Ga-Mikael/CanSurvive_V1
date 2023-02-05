@@ -36,6 +36,9 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column(nullable: true)]
     private ?int $dailyComsumption = null;
 
+    #[ORM\OneToOne(inversedBy: 'owner', cascade: ['persist', 'remove'])]
+    private ?Bunker $bunker = null; 
+
     public function getId(): ?int
     {
         return $this->id;
@@ -141,4 +144,16 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
         return $this;
     }
+
+     public function getBunker(): ?Bunker
+    {
+        return $this->bunker;
+    }
+
+    public function setBunker(?Bunker $bunker): self
+    {
+        $this->bunker = $bunker;
+
+        return $this;
+    } 
 }

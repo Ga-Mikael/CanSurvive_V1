@@ -22,6 +22,9 @@ class Resident
     #[ORM\Column(nullable: true)]
     private ?int $dailyComsumption = null;
 
+    #[ORM\ManyToOne(inversedBy: 'residents')]
+    private ?Bunker $bunkerHost = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -59,6 +62,18 @@ class Resident
     public function setDailyComsumption(?int $dailyComsumption): self
     {
         $this->dailyComsumption = $dailyComsumption;
+
+        return $this;
+    }
+
+    public function getBunkerHost(): ?Bunker
+    {
+        return $this->bunkerHost;
+    }
+
+    public function setBunkerHost(?Bunker $bunkerHost): self
+    {
+        $this->bunkerHost = $bunkerHost;
 
         return $this;
     }

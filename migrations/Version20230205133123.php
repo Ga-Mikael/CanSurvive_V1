@@ -10,7 +10,7 @@ use Doctrine\Migrations\AbstractMigration;
 /**
  * Auto-generated Migration: Please modify to your needs!
  */
-final class Version20230201213534 extends AbstractMigration
+final class Version20230205133123 extends AbstractMigration
 {
     public function getDescription(): string
     {
@@ -20,12 +20,16 @@ final class Version20230201213534 extends AbstractMigration
     public function up(Schema $schema): void
     {
         // this up() migration is auto-generated, please modify it to your needs
-        $this->addSql('CREATE TABLE can (id INT AUTO_INCREMENT NOT NULL, name VARCHAR(255) DEFAULT NULL, expiration_date DATE DEFAULT NULL, bar_code INT DEFAULT NULL, PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB');
+        $this->addSql('ALTER TABLE can ADD bunker_stock_id INT DEFAULT NULL');
+        $this->addSql('ALTER TABLE can ADD CONSTRAINT FK_633CBAD2E8496B54 FOREIGN KEY (bunker_stock_id) REFERENCES bunker (id)');
+        $this->addSql('CREATE INDEX IDX_633CBAD2E8496B54 ON can (bunker_stock_id)');
     }
 
     public function down(Schema $schema): void
     {
         // this down() migration is auto-generated, please modify it to your needs
-        $this->addSql('DROP TABLE can');
+        $this->addSql('ALTER TABLE can DROP FOREIGN KEY FK_633CBAD2E8496B54');
+        $this->addSql('DROP INDEX IDX_633CBAD2E8496B54 ON can');
+        $this->addSql('ALTER TABLE can DROP bunker_stock_id');
     }
 }
