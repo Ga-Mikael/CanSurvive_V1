@@ -4,6 +4,8 @@ namespace App\Controller;
 
 use App\Entity\Can;
 use App\Form\CanType;
+use App\Repository\BunkerRepository;
+use App\Service\BunkerManager;
 use App\Repository\CanRepository;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -15,11 +17,22 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 #[Route('/can')]
 class CanController extends AbstractController
 {
-    #[Route('/', name: 'app_can_index', methods: ['GET'])]
-    public function index(CanRepository $canRepository): Response
+
+    public function __construct(private BunkerManager $bunkerManager)
     {
+    }
+
+    #[Route('/', name: 'app_can_index', methods: ['GET'])]
+    public function index(BunkerManager $bunkerManager, BunkerRepository $bunkerRepository, CanRepository $canRepository): Response
+    {
+        /**  @var \App\Entity\User */
+        $user = $this->getUser();
+        $bunker = $user->getBunker();
+
         return $this->render('can/index.html.twig', [
-            'cans' => $canRepository->findAll(),
+            'bunker' => $bunker,
+            'canStock' => $bunkerManager->getAllCan($bunker),
+            'cans' => $canRepository->findBy(['bunkerStock' => $bunker], ['expirationDate' => 'ASC']),
         ]);
     }
 
